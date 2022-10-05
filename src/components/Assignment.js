@@ -48,6 +48,10 @@ class Assignment extends React.Component {
     console.log("Assignment.onRadioClick " + event.target.value);
     this.setState({selected: event.target.value});
   }
+
+    const handleClickInput = (name, due_date, course) => {
+        console.log('' + name + due_date + course);
+    }
   
   render() {
      const columns = [
@@ -71,7 +75,6 @@ class Assignment extends React.Component {
       { field: 'courseTitle', headerName: 'Course', width: 300 },
       { field: 'dueDate', headerName: 'Due Date', width: 200 }
       ];
-      
       const assignmentSelected = this.state.assignments[this.state.selected];
       return (
           <div align="left" >
@@ -83,7 +86,8 @@ class Assignment extends React.Component {
                     variant="outlined" color="primary" disabled={this.state.assignments.length===0}  style={{margin: 10}}>
               Grade
             </Button>
-            <ToastContainer autoClose={1500} /> 
+            <ToastContainer autoClose={1500} />
+            <button onClick={() => handleClickInput(name_, due_date_, course_)}> Add New Assignment</button>
           </div>
       )
   }
