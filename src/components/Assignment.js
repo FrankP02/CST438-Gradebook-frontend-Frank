@@ -48,10 +48,6 @@ class Assignment extends React.Component {
     console.log("Assignment.onRadioClick " + event.target.value);
     this.setState({selected: event.target.value});
   }
-
-    const handleClickInput = (name, due_date, course) => {
-        console.log('' + name + due_date + course);
-    }
   
   render() {
      const columns = [
@@ -75,6 +71,14 @@ class Assignment extends React.Component {
       { field: 'courseTitle', headerName: 'Course', width: 300 },
       { field: 'dueDate', headerName: 'Due Date', width: 200 }
       ];
+      const handleClickInput = (name, due_date, course) => {
+          console.log('' + name + due_date + course);
+      };
+      const [title, setTitle] = useState('');
+
+      var name_;
+      var due_date_;
+      var course_;
       const assignmentSelected = this.state.assignments[this.state.selected];
       return (
           <div align="left" >
