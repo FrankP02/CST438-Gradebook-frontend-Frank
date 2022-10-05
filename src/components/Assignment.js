@@ -71,7 +71,14 @@ class Assignment extends React.Component {
       { field: 'courseTitle', headerName: 'Course', width: 300 },
       { field: 'dueDate', headerName: 'Due Date', width: 200 }
       ];
-      
+      const handleClickInput = (name, due_date, course) => {
+          console.log('' + name + due_date + course);
+      };
+      const [title, setTitle] = useState('');
+
+      var name_;
+      var due_date_;
+      var course_;
       const assignmentSelected = this.state.assignments[this.state.selected];
       return (
           <div align="left" >
@@ -83,7 +90,8 @@ class Assignment extends React.Component {
                     variant="outlined" color="primary" disabled={this.state.assignments.length===0}  style={{margin: 10}}>
               Grade
             </Button>
-            <ToastContainer autoClose={1500} /> 
+            <ToastContainer autoClose={1500} />
+            <button onClick={() => handleClickInput(name_, due_date_, course_)}> Add New Assignment</button>
           </div>
       )
   }
